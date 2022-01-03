@@ -23,4 +23,21 @@ public class ComputerComponent {
         this.model = model;
         this.price = price;
     }
+
+    @Override
+    public String toString() {
+        return "item#" + itemID + " " + shop + " " + component + "\n" +
+                brand + " " + model + " " + price;
+    }
+
+    public boolean equalComponentPart(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        ComputerComponent other = (ComputerComponent) obj;
+        return component == other.component;
+    }
 }
