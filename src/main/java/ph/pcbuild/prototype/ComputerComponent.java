@@ -30,14 +30,14 @@ public class ComputerComponent {
                 brand + " " + model + " " + price;
     }
 
-    public boolean equalComponentPart(Object obj) {
-        if (this == obj)
+    public boolean equalComponentPart(ComputerComponent component) {
+        if (this == component)
             return true;
-        if (obj == null)
+        if (component == null)
             return false;
-        if (getClass() != obj.getClass())
+        if (getClass() != component.getClass())
             return false;
-        ComputerComponent other = (ComputerComponent) obj;
-        return component.equalsIgnoreCase(other.component);
+        ComputerComponent other = (ComputerComponent) component;
+        return this.component.equalsIgnoreCase(other.component);
     }
 }
