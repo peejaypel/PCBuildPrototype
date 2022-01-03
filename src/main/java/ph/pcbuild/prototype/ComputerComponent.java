@@ -38,6 +38,6 @@ public class ComputerComponent {
         if (getClass() != obj.getClass())
             return false;
         ComputerComponent other = (ComputerComponent) obj;
-        return component == other.component;
+        return component.equalsIgnoreCase(other.component);
     }
 }
