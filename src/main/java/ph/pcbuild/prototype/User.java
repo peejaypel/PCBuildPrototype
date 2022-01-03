@@ -24,7 +24,7 @@ public class User {
         Cart.add(component);
     }
 
-    void removeToCart(ComputerComponent component){
+    void removeFromCart(ComputerComponent component){
         Cart.remove(component);
     }
 
