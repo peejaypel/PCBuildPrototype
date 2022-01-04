@@ -29,7 +29,7 @@ public class ComputerComponent {
     @Override
     public String toString() {
         return "item#" + itemID + " " + shop + " " + component + "\n" +
-                brand + " " + model + " " + price;
+                brand + " " + model + " " + price + ": " + quantity;
     }
 
     public boolean equalComponentPart(ComputerComponent component) {
