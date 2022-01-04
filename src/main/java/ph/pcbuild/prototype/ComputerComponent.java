@@ -5,7 +5,7 @@ import java.util.concurrent.locks.ReentrantLock;
 import static org.apache.commons.lang3.Validate.*;
 
 public class ComputerComponent {
-    private final int itemID;
+    private final int itemId;
     private final String shop;
     private final String component;
     private final String brand;
@@ -16,12 +16,12 @@ public class ComputerComponent {
 
 
 
-    public ComputerComponent(int itemID, String shop, String component, String brand, String model, float price, int quantity) {
+    public ComputerComponent(int itemId, String shop, String component, String brand, String model, float price, int quantity) {
         notBlank(shop);
         notBlank(component);
         notBlank(brand);
         notBlank(model);
-        this.itemID = itemID;
+        this.itemId = itemId;
         this.shop = shop;
         this.component = component;
         this.brand = brand;
@@ -30,10 +30,26 @@ public class ComputerComponent {
         this.quantity = quantity;
     }
 
+    public int getItemId(){
+        return itemId;
+    }
+
     @Override
     public String toString() {
-        return "item#" + itemID + " " + shop + " " + component + "\n" +
+        return "item#" + itemId + " " + shop + " " + component + "\n" +
                 brand + " " + model + " " + price + ": " + quantity;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (this == object)
+            return true;
+        if (object == null)
+            return false;
+        if (getClass() != object.getClass())
+            return false;
+        ComputerComponent other = (ComputerComponent) object;
+        return this.itemId == other.itemId;
     }
 
     public boolean equalComponentPart(ComputerComponent component) {
