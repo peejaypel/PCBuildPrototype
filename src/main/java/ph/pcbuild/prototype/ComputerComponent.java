@@ -1,5 +1,7 @@
 package ph.pcbuild.prototype;
 
+import java.util.concurrent.locks.ReentrantLock;
+
 import static org.apache.commons.lang3.Validate.*;
 
 public class ComputerComponent {
@@ -10,6 +12,8 @@ public class ComputerComponent {
     private final String model;
     private float price;
     private int quantity;
+    private final ReentrantLock lock = new ReentrantLock();
+
 
 
     public ComputerComponent(int itemID, String shop, String component, String brand, String model, float price, int quantity) {
@@ -37,9 +41,21 @@ public class ComputerComponent {
             return true;
         if (component == null)
             return false;
-        if (getClass() != component.getClass())
-            return false;
-        ComputerComponent other = (ComputerComponent) component;
+        ComputerComponent other = component;
         return this.component.equalsIgnoreCase(other.component);
+    }
+
+    void incrementQuantity() { quantity++; }
+
+    void decrementQuantity() {
+        quantity--;
+    }
+
+    /** Locks this object's ReentrantLock **/
+    void lock() { lock.lock(); }
+
+    /** Unlock this object's ReentrantLock **/
+    void unlock() {
+        lock.unlock();
     }
 }
