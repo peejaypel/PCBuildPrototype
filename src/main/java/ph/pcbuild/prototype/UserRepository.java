@@ -2,7 +2,6 @@ package ph.pcbuild.prototype;
 
 import java.util.Collection;
 import static ph.pcbuild.prototype.DATA.*;
-import java.util.List;
 
 public class UserRepository {
     public User findBy(int userId) {
