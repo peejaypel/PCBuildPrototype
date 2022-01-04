@@ -36,12 +36,14 @@ public class ComputerComponent {
                 brand + " " + model + " " + price + ": " + quantity;
     }
 
-    public boolean equalComponentPart(ComputerComponent component) {
+    public boolean equals(Object component) {
         if (this == component)
             return true;
         if (component == null)
             return false;
-        ComputerComponent other = component;
+        if (getClass() != component.getClass())
+            return false;
+        ComputerComponent other = (ComputerComponent) component;
         return this.component.equalsIgnoreCase(other.component);
     }
 
