@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 import ph.pcbuild.prototype.*;
 
 @Controller
-@RequestMapping("addToCart")
+@RequestMapping("home")
 @SessionAttributes("user")
 public class UserController {
     private UserRepository userRepo = new UserRepository();
@@ -33,16 +33,21 @@ public class UserController {
         model.addAttribute("student", user);
         var cart = user.getCart();
         model.addAttribute("cart", cart);
-
-        model.addAttribute("shop", computerComponentRepo.findAll().stream()
-                .filter(sec -> !enlistedSections.contains(sec)).collect(Collectors.toList()));
+        var shop = computerComponentRepo.findAll();
+        model.addAttribute("shop", shop);
         return "items";
     }
 
     @PostMapping
     String addToCart(@RequestParam ComputerComponent component, @RequestParam User user, RedirectAttributes redirectAttrs) {
         user.addToCart(component);
-        redirectAttrs.addFlashAttribute("addToCartSuccessMessage", "Successfully added component " + component.getItemId() + " to user " + user.getUserId() + "");
-        return "redirect:sections";
+        redirectAttrs.addFlashAttribute("addToCartSuccessMessage", "Successfully added component " + component.getItemId() + " to user " + user.getUserId() + "'s cart");
+        return "redirect:home";
+    }
+
+    @ExceptionHandler(AddToCartException.class)
+    String handleException(RedirectAttributes redirectAttrs, AddToCartException e) {
+        redirectAttrs.addFlashAttribute("enlistmentExceptionMessage", e.getMessage());
+        return "redirect:home";
     }
 }
