@@ -1,5 +1,7 @@
 package ph.pcbuild.prototype;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 
@@ -9,7 +11,7 @@ public class User {
     private final int userId;
     private final String firstName;
     private final String lastName;
-    private List<ComputerComponent> Cart;
+    private List<ComputerComponent> cart;
 
     User(int userId, String firstName, String lastName){
         isTrue(userId >= 0, "userId should be non-negative, was: " + userId);
@@ -21,14 +23,18 @@ public class User {
     }
 
     void addToCart(ComputerComponent component){
-        Cart.add(component);
+        cart.add(component);
     }
 
     void removeFromCart(ComputerComponent component){
-        Cart.remove(component);
+        cart.remove(component);
     }
 
     public int getUserId(){ return userId;}
+
+    public Collection<ComputerComponent> getCart() {
+        return new ArrayList<>(cart);
+    }
 
     @Override
     public String toString() {
