@@ -35,7 +35,15 @@ public class User {
     }
 
     void removeFromCart(ComputerComponent component){
-        cart.remove(component);
+        notNull(component);
+        component.lock();
+        try{
+            if(cart.remove(component)){
+                component.incrementQuantity();
+            }
+        } finally {
+            component.unlock();
+        }
     }
 
     public int getUserId(){ return userId;}
