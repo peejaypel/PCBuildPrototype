@@ -22,8 +22,16 @@ public class User {
         this.lastName = lastName;
     }
 
-    void addToCart(ComputerComponent component){
-        cart.add(component);
+    public void addToCart(ComputerComponent component){
+        notNull(component);
+        component.lock();
+        // make sure only one thread at a time
+        try{
+            component.decrementQuantity();
+            cart.add(component);
+        } finally {
+            component.unlock();
+        }
     }
 
     void removeFromCart(ComputerComponent component){
