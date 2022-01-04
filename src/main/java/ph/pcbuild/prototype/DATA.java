@@ -1,5 +1,6 @@
 package ph.pcbuild.prototype;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
@@ -14,7 +15,7 @@ public class DATA {
     final static ComputerComponent C1 = new ComputerComponent(1, "Shopee", "RAM", "Kingston", "8GB DDR4 2400Mhz", 1870, 25);
     final static ComputerComponent C2 = new ComputerComponent(2, "Lazada", "RAM", "Kingston", "8GB DDR4 2400Mhz", 2000, 25);
     final static ComputerComponent C3 = new ComputerComponent(3, "Shopee", "CPU", "Intel", "i3 8100", 5650, 25);
-    final static Collection<ComputerComponent> COMPUTER_COMPONENTS = new HashSet<>(List.of(C1, C2, C3));
+    final static Collection<ComputerComponent> COMPUTER_COMPONENTS = new ArrayList<>(List.of(C1, C2, C3));
 
     //Users
     final static User JAMES = new User(1, "James", "Bond");
