@@ -3,12 +3,7 @@ package ph.pcbuild.prototype.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import ph.pcbuild.prototype.User;
-import ph.pcbuild.prototype.UserRepository;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import java.util.stream.Collectors;
-
 import ph.pcbuild.prototype.*;
 
 @Controller
