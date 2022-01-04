@@ -75,8 +75,6 @@ public class ComputerComponent {
         } else {
             throw new OutOfStockException("Stock quantity is at: " + quantity + ". Should be at least 1.");
         }
-
-
     }
 
     /** Locks this object's ReentrantLock **/
