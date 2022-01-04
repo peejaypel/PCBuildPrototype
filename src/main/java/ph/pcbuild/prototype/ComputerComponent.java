@@ -1,5 +1,6 @@
 package ph.pcbuild.prototype;
 
+import java.util.Objects;
 import java.util.concurrent.locks.ReentrantLock;
 
 import static org.apache.commons.lang3.Validate.*;
@@ -50,6 +51,11 @@ public class ComputerComponent {
             return false;
         ComputerComponent other = (ComputerComponent) object;
         return this.itemId == other.itemId;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(itemId);
     }
 
     public boolean equalComponentPart(ComputerComponent component) {
