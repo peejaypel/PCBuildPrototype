@@ -9,9 +9,10 @@ public class ComputerComponent {
     private final String brand;
     private final String model;
     private float price;
+    private int quantity;
 
 
-    public ComputerComponent(int itemID, String shop, String component, String brand, String model, float price) {
+    public ComputerComponent(int itemID, String shop, String component, String brand, String model, float price, int quantity) {
         notBlank(shop);
         notBlank(component);
         notBlank(brand);
@@ -22,6 +23,7 @@ public class ComputerComponent {
         this.brand = brand;
         this.model = model;
         this.price = price;
+        this.quantity = quantity;
     }
 
     @Override
