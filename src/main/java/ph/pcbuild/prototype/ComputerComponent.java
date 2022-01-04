@@ -70,7 +70,13 @@ public class ComputerComponent {
     void incrementQuantity() { quantity++; }
 
     void decrementQuantity() {
-        quantity--;
+        if(this.quantity >= 1){
+            quantity--;
+        } else {
+            throw new OutOfStockException("Stock quantity is at: " + quantity + ". Should be at least 1.");
+        }
+
+
     }
 
     /** Locks this object's ReentrantLock **/
