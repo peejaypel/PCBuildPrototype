@@ -10,5 +10,9 @@ public class ComputerComponentRepository {
         return findAll().stream().filter(component -> component.getItemId() == itemId).findFirst();
     }
 
+    public void addToShop(ComputerComponent component){
+        COMPUTER_COMPONENTS.add(component);
+    }
+
     public Collection<ComputerComponent> findAll() { return COMPUTER_COMPONENTS;}
 }
