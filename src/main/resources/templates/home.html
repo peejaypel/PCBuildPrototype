@@ -46,10 +46,10 @@
                     <td th:text="${item.quantity}">${item.quantity}</td>
                     <td>
                         <form action="addToCart" method="post">
-                            <input type="hidden" name="userId" th:value="${user.userId}">
-                            <input type="hidden" name="userAction" th:value="cancel">
-                            <input type="hidden" name="itemId" th:value="${item.itemId}">
-                            <input class="btn" type="submit" value="Cancel">
+                            <input type="hidden" name="userId" th:value="${user.userId}"/>
+                            <input type="hidden" name="userAction" th:value="cancel"/>
+                            <input type="hidden" name="itemId" th:value="${item.itemId}"/>
+                            <input class="btn" type="submit" value="Cancel"/>
                         </form>
                     </td>
                 </tr>
@@ -76,10 +76,10 @@
                     <td th:text="${item.quantity}">${item.quantity}</td>
                     <td>
                     <form action="addToCart" method="post">
-                        <input type="hidden" name="userId" th:value="${user.userId}">
-                        <input type="hidden" name="userAction" th:value="addToCart">
-                        <input type="hidden" name="itemId" th:value="${item.itemId}">
-                        <input class="btn" type="submit" value="Add To Cart">
+                        <input type="hidden" name="userId" th:value="${user.userId}"/>
+                        <input type="hidden" name="userAction" th:value="addToCart"/>
+                        <input type="hidden" name="itemId" th:value="${item.itemId}"/>
+                        <input class="btn" type="submit" value="Add To Cart"/>
                     </form>
                     </td>
                 </tr>
