@@ -16,8 +16,8 @@
 <title>Shop</title>
 <div class="container-fluid">
     <h1>
-        Shopping Cart for <span th:text="${user.firstname}">John</span>
-        <span th:text="${user.lastname}">Doe</span>,
+        Shopping Cart for <span th:text="${user.firstName}">John</span>
+        <span th:text="${user.lastName}">Doe</span>,
         UID#<span th:text="${user.userId}">69420</span>
         <a href="login.html">Logout</a>
     </h1>
@@ -74,7 +74,7 @@
                     <td th:text="${item.shop}">${item.shop}</td>
                     <td th:text="${item.price}">${item.price}</td>
                     <td th:text="${item.quantity}">${item.quantity}</td>
-
+                    <td>
                     <form action="addToCart" method="post">
                         <input type="hidden" name="userId" th:value="${user.userId}">
                         <input type="hidden" name="userAction" th:value="addToCart">
