@@ -15,7 +15,29 @@ public class ComputerComponent {
     private int quantity;
     private final ReentrantLock lock = new ReentrantLock();
 
+    public String getComponent() {
+        return component;
+    }
 
+    public String getBrand() {
+        return brand;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public String getShop() {
+        return shop;
+    }
+
+    public float getPrice() {
+        return price;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
 
     public ComputerComponent(int itemId, String component, String brand, String model, String shop, float price, int quantity) {
         notBlank(shop);
