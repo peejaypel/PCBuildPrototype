@@ -7,26 +7,26 @@ import static org.apache.commons.lang3.Validate.*;
 
 public class ComputerComponent {
     private final int itemId;
-    private final String shop;
     private final String component;
     private final String brand;
     private final String model;
+    private final String shop;
     private float price;
     private int quantity;
     private final ReentrantLock lock = new ReentrantLock();
 
 
 
-    public ComputerComponent(int itemId, String shop, String component, String brand, String model, float price, int quantity) {
+    public ComputerComponent(int itemId, String component, String brand, String model, String shop, float price, int quantity) {
         notBlank(shop);
         notBlank(component);
         notBlank(brand);
         notBlank(model);
         this.itemId = itemId;
-        this.shop = shop;
         this.component = component;
         this.brand = brand;
         this.model = model;
+        this.shop = shop;
         this.price = price;
         this.quantity = quantity;
     }
