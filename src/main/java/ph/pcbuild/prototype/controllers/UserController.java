@@ -35,7 +35,7 @@ public class UserController {
 
     @PostMapping
     String addToCart(@ModelAttribute User user,@RequestParam Integer itemId, @RequestParam String userAction, RedirectAttributes redirectAttrs) {
-        ComputerComponent component = computerComponentRepo.findBy(itemId);
+        ComputerComponent component = computerComponentRepo.findBy(itemId).get();
 
         switch (userAction) {
             case "addToCart":
