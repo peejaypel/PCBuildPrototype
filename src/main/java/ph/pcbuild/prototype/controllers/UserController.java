@@ -25,7 +25,7 @@ public class UserController {
     String showItem(Model model, Integer userId) {
         User user = userId == null ? (User) model.getAttribute("user")
                 : userRepo.findBy(userId);
-        model.addAttribute("student", user);
+        model.addAttribute("user", user);
         var cart = user.getCart();
         model.addAttribute("cart", cart);
         var shop = computerComponentRepo.findAll();
