@@ -11,7 +11,7 @@ public class User {
     private final int userId;
     private final String firstName;
     private final String lastName;
-    private List<ComputerComponent> cart;
+    private List<ComputerComponent> cart = new ArrayList<ComputerComponent>();
 
     User(int userId, String firstName, String lastName){
         isTrue(userId >= 0, "userId should be non-negative, was: " + userId);
