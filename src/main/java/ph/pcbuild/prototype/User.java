@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
+import static ph.pcbuild.prototype.DATA.*;
 
 import static org.apache.commons.lang3.Validate.*;
 
@@ -22,6 +23,17 @@ public class User {
         this.lastName = lastName;
     }
 
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public int getUserId(){ return userId;}
+
+
     public void addToCart(ComputerComponent component){
         notNull(component);
         component.lock();
@@ -34,19 +46,18 @@ public class User {
         }
     }
 
-    void removeFromCart(ComputerComponent component){
+    public void removeFromCart(ComputerComponent component){
         notNull(component);
         component.lock();
         try{
             if(cart.remove(component)){
                 component.incrementQuantity();
+                //might need to replace component in ArrayList Repo
             }
         } finally {
             component.unlock();
         }
     }
-
-    public int getUserId(){ return userId;}
 
     public Collection<ComputerComponent> getCart() {
         return new ArrayList<>(cart);
