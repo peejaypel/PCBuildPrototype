@@ -1,0 +1,88 @@
+<!-- Start Header -->
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="shortcut icon" href="favicon.ico"/>
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+            crossorigin="anonymous">
+
+</head>
+<!-- End Header -->
+<body>
+<title>Shop</title>
+<div class="container-fluid">
+
+    <div class="d-flex bg-dark container-fluid">
+        <a href="home" class="link-primary p-2">Shop Name/Logo</a>
+        <div class="p-2 flex-grow-1"></div>
+        <a href="#" class="link-primary p-2">Help</a>
+        <a href="#" class="link-primary p-2">Notifications</a>
+        <a href="#" class="link-primary p-2">Cart</a>
+        <a href="login.html" class="link-primary p-2">Logout</a>
+    </div>
+    <div class="d-flex container-fluid">
+        <a href="#" class="link-primary p-2">Category 1</a>
+        <a href="#" class="link-primary p-2">Dropdown</a>
+        <a href="#" class="link-primary p-2">Feature</a>
+        <a href="#" class="link-primary p-2">?</a>
+        <a href="#" class="link-primary p-2">Brands</a>
+        <div class="form-outline flex-grow-1">
+            <input type="search" id="form1" class="form-control" placeholder="Type query"
+                   aria-label="Search"/>
+        </div>
+    </div>
+
+    <h1>
+        Cart for <span th:text="${user.firstName}">John</span>
+        <span th:text="${user.lastName}">Doe</span>,
+        UID#<span th:text="${user.userId}">69420</span>
+    </h1>
+    <div th:if="${addToCartExceptionMessage}" class="alert alert-danger">
+        <h2 th:text="${addToCartExceptionMessage}">Error message goes here.</h2>
+    </div>
+    <div class="row">
+        <div class="col-md">
+            <h2>Shopping Cart Items</h2>
+            <table class="table table-bordered" id="cart_table">
+                <tr>
+                    <th>Component</th>
+                    <th>Brand</th>
+                    <th>Model</th>
+                    <th>Shop</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                </tr>
+
+                <tr th:id="${item.itemId}" th:each="item : ${cart}">
+                    <td th:text="${item.component}">${item.component}</td>
+                    <td th:text="${item.brand}">${item.brand}</td>
+                    <td th:text="${item.model}">${item.model}</td>
+                    <td th:text="${item.shop}">${item.shop}</td>
+                    <td th:text="${item.price}">${item.price}</td>
+                    <td th:text="${item.quantity}">${item.quantity}</td>
+                    <td>
+                        <form action="removeToCart" method="post">
+                            <input type="hidden" name="userId" th:value="${user.userId}"/>
+                            <input type="hidden" name="userAction" th:value="cancel"/>
+                            <input type="hidden" name="itemId" th:value="${item.itemId}"/>
+                            <input class="btn" type="submit" value="Cancel"/>
+                        </form>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<!-- Start Footer -->
+<script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+</body>
+</html>
+<!-- End Footer -->
