@@ -1,5 +1,7 @@
 package ph.pcbuild.prototype;
 
+import org.junit.Test;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -11,7 +13,7 @@ public class User {
     private final int userId;
     private final String firstName;
     private final String lastName;
-    private List<ComputerComponent> cart = new ArrayList<ComputerComponent>();
+    private List<ComputerComponent> cart = new ArrayList<>();
 
     User(int userId, String firstName, String lastName){
         isTrue(userId >= 0, "userId should be non-negative, was: " + userId);
