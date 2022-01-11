@@ -10,13 +10,34 @@
             rel="stylesheet"
             integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
             crossorigin="anonymous">
+
 </head>
 <!-- End Header -->
 <body>
 <title>Shop</title>
 <div class="container-fluid">
+
+    <div class="d-flex bg-dark container-fluid">
+        <a href="#" class="link-primary p-2">Shop Name/Logo</a>
+        <div class="p-2 flex-grow-1"></div>
+        <a href="#" class="link-primary p-2">Help</a>
+        <a href="#" class="link-primary p-2">Notifications</a>
+        <a href="#" class="link-primary p-2">Cart</a>
+    </div>
+    <div class="d-flex container-fluid">
+        <a href="#" class="link-primary p-2">Category 1</a>
+        <a href="#" class="link-primary p-2">Dropdown</a>
+        <a href="#" class="link-primary p-2">Feature</a>
+        <a href="#" class="link-primary p-2">?</a>
+        <a href="#" class="link-primary p-2">Brands</a>
+        <div class="form-outline flex-grow-1">
+            <input type="search" id="form1" class="form-control" placeholder="Type query"
+                   aria-label="Search" />
+        </div>
+    </div>
+
     <h1>
-        Shopping Cart for <span th:text="${user.firstName}">John</span>
+        Shopping Cartssss for <span th:text="${user.firstName}">John</span>
         <span th:text="${user.lastName}">Doe</span>,
         UID#<span th:text="${user.userId}">69420</span>
         <a href="login.html">Logout</a>
