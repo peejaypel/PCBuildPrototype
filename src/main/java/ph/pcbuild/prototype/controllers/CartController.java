@@ -45,8 +45,8 @@ public class CartController {
         return "redirect:home";
     }
 
-    @ExceptionHandler(AddToCartException.class)
-    String handleException(RedirectAttributes redirectAttrs, AddToCartException e) {
+    @ExceptionHandler(CartException.class)
+    String handleException(RedirectAttributes redirectAttrs, CartException e) {
         redirectAttrs.addFlashAttribute("addToCartException", e.getMessage());
         return "redirect:cart";
     }

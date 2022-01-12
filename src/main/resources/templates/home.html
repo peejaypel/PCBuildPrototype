@@ -10,7 +10,6 @@
             rel="stylesheet"
             integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
             crossorigin="anonymous">
-
 </head>
 <!-- End Header -->
 <body>
@@ -33,8 +32,8 @@
         <a href="#" class="link-primary p-2">Brands</a>
         <a href="#" class="link-primary p-2">Shops</a>
         <div class="form-outline flex-grow-1">
-            <input type="search" id="form1" class="form-control" placeholder="Type query"
-                   aria-label="Search"/>
+<!--            <input type="search" id="form1" class="form-control" placeholder="Type query"-->
+<!--                   aria-label="Search"/>-->
         </div>
     </div>
 
@@ -56,8 +55,8 @@
         </div>
     </div>
 
-    <div th:if="${addToCartExceptionMessage}" class="alert alert-danger">
-        <h2 th:text="${addToCartExceptionMessage}">Error message goes here.</h2>
+    <div th:if="${cartExceptionMessage}" class="alert alert-danger">
+        <h2 th:text="${cartExceptionMessage}">Error message goes here.</h2>
     </div>
 
     <div class="row">
