@@ -13,6 +13,7 @@ public class UserController {
     private UserRepository userRepo = new UserRepository();
     private ComputerComponentRepository computerComponentRepo = new ComputerComponentRepository();
 
+    //is similar/equivalent to get mapping user repo find by user ID
     @ModelAttribute("user")
     User user(@RequestParam Integer userId) {
         if (userId == null) {
@@ -52,8 +53,8 @@ public class UserController {
         return "redirect:home";
     }
 
-    @ExceptionHandler(AddToCartException.class)
-    String handleException(RedirectAttributes redirectAttrs, AddToCartException e) {
+    @ExceptionHandler(CartException.class)
+    String handleException(RedirectAttributes redirectAttrs, CartException e) {
         redirectAttrs.addFlashAttribute("enlistmentExceptionMessage", e.getMessage());
         return "redirect:home";
     }
