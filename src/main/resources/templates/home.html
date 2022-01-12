@@ -15,16 +15,7 @@
 <body>
 <title>Shop</title>
 
-<nav class="navbar sticky-top bg-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">PCBuildPrototype</a>
-        <div class="d-flex">
-            <a class="mx-2 .text-white">About</a>
-            <a class="mx-2 .text-white">Cart</a>
-            <a class="mx-2 .text-white">Logout</a>
-        </div>
-    </div>
-</nav>
+<div th:replace="fragments/navbars.html :: homeNavbar"></div>
 
 <div class="container-fluid">
 

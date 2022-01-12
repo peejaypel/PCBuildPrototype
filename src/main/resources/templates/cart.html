@@ -15,27 +15,10 @@
 <!-- End Header -->
 <body>
 <title>Shop</title>
-<div class="container-fluid">
 
-    <div class="d-flex bg-dark container-fluid">
-        <a href="home" class="link-primary p-2">Shop Name/Logo</a>
-        <div class="p-2 flex-grow-1"></div>
-        <a href="#" class="link-primary p-2">Help</a>
-        <a href="#" class="link-primary p-2">Notifications</a>
-        <a href="#" class="link-primary p-2">Cart</a>
-        <a href="login.html" class="link-primary p-2">Logout</a>
-    </div>
-    <div class="d-flex container-fluid">
-        <a href="#" class="link-primary p-2">Category 1</a>
-        <a href="#" class="link-primary p-2">Dropdown</a>
-        <a href="#" class="link-primary p-2">Feature</a>
-        <a href="#" class="link-primary p-2">?</a>
-        <a href="#" class="link-primary p-2">Brands</a>
-        <div class="form-outline flex-grow-1">
-            <input type="search" id="form1" class="form-control" placeholder="Type query"
-                   aria-label="Search"/>
-        </div>
-    </div>
+<div th:replace="fragments/navbars.html :: homeNavbar"></div>
+
+<div class="container-fluid">
 
     <h1>
         Cart for <span th:text="${user.firstName}">John</span>
