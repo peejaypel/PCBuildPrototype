@@ -1,12 +1,27 @@
 <div th:fragment="homeNavbar">
     <nav class="navbar sticky-top bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">PCBuildPrototype</a>
+            <a class="navbar-brand" href="home">PCBuildPrototype</a>
             <div class="d-flex">
                 <a class="mx-2 .text-white" href="about">About</a>
                 <a class="mx-2 .text-white" href="cart">Cart</a>
                 <a class="mx-2 .text-white" href="login.html">Logout</a>
             </div>
+        </div>
+    </nav>
+    <nav class="navbar sticky-top bg-secondary">
+        <div class="container-fluid">
+            <div class="d-flex">
+                <a class="mx-2 text-white" href="home">Home</a>
+                <a class="mx-2 text-white" href="topsellers">Top-sellers</a>
+                <a class="mx-2 text-white" href="categories">Categories</a>
+                <a class="mx-2 text-white" href="shops">Shops</a>
+                <a class="mx-2 text-white" href="components">Components</a>
+            </div>
+            <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-primary" type="submit">Search</button>
+            </form>
         </div>
     </nav>
 </div>
