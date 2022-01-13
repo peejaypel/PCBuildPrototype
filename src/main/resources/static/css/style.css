@@ -33,6 +33,16 @@ a {
     text-decoration-line: none;
 }
 
+.main {
+    /*background: linear-gradient(0deg, rgba(60,9,62,1) 0%, rgba(98,14,102,1) 100%);*/
+    padding: 50px;
+    background-color: #620E66;
+    opacity: 1;
+    background-image: radial-gradient(#4a0c4e 2px, #620E66 2px);
+    background-size: 18px 18px;
+
+}
+
 h1 {
     color: white;
     font-weight: bolder;
