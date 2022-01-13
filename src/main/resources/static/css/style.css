@@ -66,5 +66,11 @@ table th {
     font-weight: bolder;
 }
 
+.about-card {
+    min-height: 400px;
+    max-width: 50rem;
+    margin: 75px 100px;
+}
+
 
 
