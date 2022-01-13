@@ -161,8 +161,10 @@
 <script>
     var swiper = new Swiper(".swiper-container", {
         effect: "coverflow",
+        initialSlide: 2,
         grabCursor: true,
         centeredSlides: true,
+        centeredSlidesBounds: true,
         slidesPerView: "auto",
         coverflowEffect: {
             rotate: 20,
