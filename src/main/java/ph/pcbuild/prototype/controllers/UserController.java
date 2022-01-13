@@ -43,25 +43,6 @@ public class UserController {
         return "home";
     }
 
-    @PostMapping
-    String addToCart(@ModelAttribute User user,@RequestParam Integer itemId, @RequestParam String userAction, RedirectAttributes redirectAttrs) {
-        ComputerComponent component = computerComponentRepo.findBy(itemId).get();
-
-        switch (userAction) {
-            case "addToCart":
-                user.addToCart(component);
-                break;
-            case "cancel":
-                user.removeFromCart(component);
-                break;
-        }
-
-        //Specifically, @GetMapping is a composed annotation that acts as a shortcut for @RequestMapping(method = RequestMethod.GET).
-
-        redirectAttrs.addFlashAttribute("addToCartSuccessMessage", "Successfully added component " + component.getItemId() + " to user " + user.getUserId() + "'s cart");
-        return "redirect:cart";
-    }
-
     @ExceptionHandler(CartException.class)
     String handleException(RedirectAttributes redirectAttrs, CartException e) {
         redirectAttrs.addFlashAttribute("enlistmentExceptionMessage", e.getMessage());
