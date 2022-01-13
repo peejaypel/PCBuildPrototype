@@ -106,11 +106,10 @@
                     <td th:text="${item.price}">${item.price}</td>
                     <td th:text="${item.quantity}">${item.quantity}</td>
                     <td class="d-flex justify-content-center">
-<!--                        <input class="btn-primary" type="submit" value="Add To Cart" onclick="alert('alert!!!');"/>-->
-                        <form action="addToCart" method="post">
-                            <input type="hidden" name="userAction" th:value="addToCart"/>
+                        <form action="home" method="post">
                             <input type="hidden" name="itemId" th:value="${item.itemId}"/>
-                            <input class="btn-primary" type="submit" value="Add To Cart" onclick="alert('alert!!')"/>
+                            <input type="hidden" name="userAction" th:value="addToCart"/>
+                            <input class="btn-primary" type="submit" value="AddToCart" onclick="alert('alert!!')"/>
                         </form>
                     </td>
                 </tr>
