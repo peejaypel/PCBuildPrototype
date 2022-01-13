@@ -32,17 +32,22 @@ public class CartController {
     }
 
     @PostMapping
-    String removeToCart(@ModelAttribute User user,@RequestParam Integer itemId, @RequestParam String userAction, RedirectAttributes redirectAttrs) {
+    String addRemoveCart(@ModelAttribute User user,@RequestParam Integer itemId, @RequestParam String userAction, RedirectAttributes redirectAttrs) {
         ComputerComponent component = computerComponentRepo.findBy(itemId).get();
 
         switch (userAction) {
+            case "addToCart":
+                user.addToCart(component);
+                break;
             case "cancel":
                 user.removeFromCart(component);
                 break;
         }
 
-        redirectAttrs.addFlashAttribute("removeToCartSuccessMessage", "Successfully removed component " + component.getItemId() + " from user's " + user.getUserId() + "'s cart");
-        return "redirect:home";
+        //Specifically, @GetMapping is a composed annotation that acts as a shortcut for @RequestMapping(method = RequestMethod.GET).
+
+        redirectAttrs.addFlashAttribute("addToCartSuccessMessage", "Successfully added component " + component.getItemId() + " to user " + user.getUserId() + "'s cart");
+        return "redirect:cart";
     }
 
     @ExceptionHandler(CartException.class)
