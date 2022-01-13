@@ -72,5 +72,13 @@ table th {
     margin: 75px 100px;
 }
 
+.card-category {
+    height: 175px;
+    width: 120px;
+    background-color: white;
+}
 
+.card-category:hover{
+    background-color: rgba(221, 183, 255, 0.93);
+}
 

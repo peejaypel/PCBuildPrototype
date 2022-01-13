@@ -77,10 +77,14 @@
     <div>
         <h1 class="text-center">Categories</h1>
         <div class="row">
-            <div class="swiper-container">
+            <div class="d-flex flex-wrap justify-content-center">
+                <div class="card-category m-2 p-2 align-content-center" th:each="item:${categories}">
+                    <img class="rounded d-block mx-auto" src="icon_placeholder.png">
+                    <p class="text-center" th:text="${item}"></p>
+                </div>
                 <!-- Additional required wrapper -->
-                <div class="swiper-wrapper">
-                    <!-- Slides -->
+                <!--<div class="swiper-wrapper">
+                    &lt;!&ndash; Slides &ndash;&gt;
                     <div class="swiper-slide" th:each="item:${shop}">
                         <div class="picture">
                             <img src="icon_placeholder.png" alt="gtx 1050">
@@ -90,7 +94,7 @@
                             <span th:text="${item.price}">component_price</span>
                         </div>
                     </div>
-                </div>
+                </div>-->
             </div>
         </div>
     </div>
@@ -141,7 +145,6 @@
                     <td th:text="${item.quantity}">${item.quantity}</td>
                     <td class="d-flex justify-content-center">
                         <form action="addToCart" method="post">
-                            <input type="hidden" name="userId" th:value="${user.userId}"/>
                             <input type="hidden" name="userAction" th:value="addToCart"/>
                             <input type="hidden" name="itemId" th:value="${item.itemId}"/>
                             <input class="btn-primary" type="submit" value="Add To Cart"/>
