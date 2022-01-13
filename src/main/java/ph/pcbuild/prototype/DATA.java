@@ -15,9 +15,9 @@ public class DATA {
     final static ComputerComponent C1 = new ComputerComponent(1, "RAM", "Kingston", "8GB DDR4 2400Mhz", "Shopee", 1870, 25);
     final static ComputerComponent C2 = new ComputerComponent(2, "RAM", "Kingston", "8GB DDR4 2400Mhz", "Lazada", 2000, 25);
     final static ComputerComponent C3 = new ComputerComponent(3, "CPU", "Intel", "i3 8100", "Shopee", 5650, 25);
-    final static ComputerComponent C4 = new ComputerComponent(4, "CPU", "Intel", "AMD A8-6600", "Shopee", 1275, 25);
-    final static ComputerComponent C5 = new ComputerComponent(5, "CPU", "Intel", "Core i7 4790K", "Shopee", 6670, 25);
-    final static ComputerComponent C6 = new ComputerComponent(6, "Motherboard", "Asus", " TUF GAMING B550-PLUS", "Shopee", 7970, 25);
+    final static ComputerComponent C4 = new ComputerComponent(4, "GPU", "Nvidia", "GTX1050 Ti", "PCExpress", 1275, 25);
+    final static ComputerComponent C5 = new ComputerComponent(5, "SSD", "Sandisk", "Sandisk 500GB", "EasyPC", 6670, 25);
+    final static ComputerComponent C6 = new ComputerComponent(6, "DVD", "EagleEye", "DVD 720RPM 2kZZ", "PCEasy", 7970, 25);
     final static ComputerComponent C7 = new ComputerComponent(7, "Motherboard", "Gigabyte", "B450M AORUS ELITE", "Shopee", 5265, 25);
     final static ComputerComponent C8 = new ComputerComponent(8, "Motherboard", "MSI", "MAG B550M", "Shopee", 7500, 25);
     final static ComputerComponent C9 = new ComputerComponent(9, "HDD", "Toshiba", "1TB HDD 3.5in Internal", "Shopee", 2075, 25);
@@ -26,7 +26,7 @@ public class DATA {
     final static ComputerComponent C12 = new ComputerComponent(12, "PSU", "Gigabyte", "P550B 550W", "Shopee", 2535, 25);
     final static ComputerComponent C13 = new ComputerComponent(13, "PSU", "Corsair", "CV750", "Shopee", 3799, 25);
     final static ComputerComponent C14 = new ComputerComponent(14, "PSU", "Cooler Master", "MWE Gold - II", "Shopee", 5999, 25);
-    final static Collection<ComputerComponent> COMPUTER_COMPONENTS = new ArrayList<>(List.of(C1, C2, C3, C4, C5, C6, C7, C8, C9));
+    final static Collection<ComputerComponent> COMPUTER_COMPONENTS = new ArrayList<>(List.of(C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14));
 
     //Users
     final static User JAMES = new User(1, "James", "Bond");
