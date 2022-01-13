@@ -6,6 +6,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import ph.pcbuild.prototype.*;
 
+import java.util.Collection;
+import java.util.HashSet;
+
 @Controller
 @RequestMapping("home")
 @SessionAttributes("user")
@@ -31,6 +34,13 @@ public class UserController {
         model.addAttribute("cart", cart);
         var shop = computerComponentRepo.findAll();
         model.addAttribute("shop", shop);
+
+        var categories = new HashSet<>();
+        for (ComputerComponent component :shop) {
+            if (!categories.contains(component.getComponent())) categories.add(component.getComponent());
+        }
+        model.addAttribute("categories", categories);
+
         return "home";
     }
 
