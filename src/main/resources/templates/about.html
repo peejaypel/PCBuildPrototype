@@ -1,24 +1,38 @@
 <!-- Start Header -->
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <link rel="shortcut icon" href="favicon.ico"/>
-    <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
-            crossorigin="anonymous">
-</head>
-<!-- End Header -->
+
+<!--Begin Header-->
+<div th:replace="fragments/header.html :: header"></div>
+
 <body>
 <title>About</title>
 
 <div th:replace="fragments/navbars.html :: homeNavbar"></div>
 
 <div class="container-fluid">
-    ABOUT PAGE
+    <div class="about-card justify-content-center">
+        <div class="row">
+            <h2 class="text-center"> About Us </h2>
+        </div>
+        <div class="row">
+            He ran as he’d never run before, with neither hope nor despair.
+            He ran because the world was divided into opposites and his
+            side had already been chosen for him, his only choice being
+            whether or not to play his part with heart and courage.
+            He ran because fate had placed him in a position of
+            responsibility and he had accepted the burden. He ran because
+            his self-respect required it. He ran because he loved his
+            friends and this was the only thing he could do to end the
+            madness that was killing and maiming them. He ran directly
+            at the bunker where the grenades from Jake’s M-79 were exploding.
+            The bullets from the M-60 machine gun slammed through the air
+            on his right, slashing past him, whining like tortured cats,
+            cracking like the bullwhip of death. He ran, having never felt
+            so alone and frightened in his life.
+        </div>
+        <div class="my-4 row text-muted text-center">Karl Marlantes | Matterhorn </div>
+    </div>
 </div>
 <!-- Start Footer -->
 <div th:replace="fragments/footer.html :: footer"></div>
