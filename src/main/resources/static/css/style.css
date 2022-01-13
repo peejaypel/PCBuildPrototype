@@ -82,3 +82,20 @@ table th {
     background-color: rgba(221, 183, 255, 0.93);
 }
 
+.card-component {
+    background-color: white;
+    min-width: 130px;
+}
+
+.card-component:hover {
+    background-color: rgba(221, 183, 255, 0.93);
+}
+
+.card-component-info p{
+    margin: 0;
+}
+
+.card-component-name {
+    font-weight: bolder;
+}
+

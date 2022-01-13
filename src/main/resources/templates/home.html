@@ -14,7 +14,7 @@
 <!--Main-->
 <div class="main container-fluid">
 
-    <div class="bgpattern-polka">
+    <div>
         <h1 class="text-center">Top-sellers</h1>
         <div class="row">
             <div class="swiper-container">
@@ -35,8 +35,10 @@
         </div>
     </div>
 
+    <div class="my-5"></div>
+
     <!--Categories-->
-    <div>
+    <div class="home-section">
         <h1 class="text-center">Categories</h1>
         <div class="row">
             <div class="d-flex flex-wrap justify-content-center">
@@ -44,44 +46,37 @@
                     <img class="rounded d-block mx-auto" src="icon_placeholder.png">
                     <p class="text-center" th:text="${item}"></p>
                 </div>
-                <!-- Additional required wrapper -->
-                <!--<div class="swiper-wrapper">
-                    &lt;!&ndash; Slides &ndash;&gt;
-                    <div class="swiper-slide" th:each="item:${shop}">
-                        <div class="picture">
-                            <img src="icon_placeholder.png" alt="gtx 1050">
-                        </div>
-                        <div class="detail">
-                            <h3 th:text="${item.component}">component_name</h3>
-                            <span th:text="${item.price}">component_price</span>
-                        </div>
-                    </div>
-                </div>-->
             </div>
         </div>
     </div>
 
-    <!--Shops-->
-    <div>
-        <h1 class="text-center">Shops</h1>
+    <div class="my-5"></div>
+
+<!-- Components -->
+    <div class="home-section">
+        <h1 class="text-center">Components</h1>
         <div class="row">
-            <div class="swiper-container">
-                <!-- Additional required wrapper -->
-                <div class="swiper-wrapper">
-                    <!-- Slides -->
-                    <div class="swiper-slide" th:each="item:${shop}">
-                        <div class="picture">
-                            <img src="icon_shop.png" alt="gtx 1050">
-                        </div>
-                        <div class="detail">
-                            <h3 th:text="${item.component}">component_name</h3>
-                            <span th:text="${item.price}">component_price</span>
-                        </div>
+            <div class="d-flex flex-wrap justify-content-center">
+                <div class="card-component m-2 p-2 align-content-center" th:each="item:${shop}">
+                    <img class="rounded d-block mx-auto" src="icon_placeholder.png">
+                    <div class="card-component-info">
+                        <p class="text-center card-component-name" th:text="${item.component}"></p>
+                        <p class="text-center" th:text="${item.price}"></p>
+                        <p class="text-center" th:text="${item.shop}"></p>
+                    </div>
+                    <div class="d-block mx-auto">
+                        <form action="cart"method="post">
+                            <input type="hidden" name="itemId" th:value="${item.itemId}"/>
+                            <input type="hidden" name="userAction" th:value="addToCart"/>
+                            <input class="btn-primary d-block mx-auto" type="submit" value="AddToCart"/>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <div class="my-5"></div>
 
     <!--Components-->
     <div>
