@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import ph.pcbuild.prototype.*;
 
-import java.util.Collection;
 import java.util.HashSet;
 
 @Controller
@@ -60,7 +59,7 @@ public class UserController {
         //Specifically, @GetMapping is a composed annotation that acts as a shortcut for @RequestMapping(method = RequestMethod.GET).
 
         redirectAttrs.addFlashAttribute("addToCartSuccessMessage", "Successfully added component " + component.getItemId() + " to user " + user.getUserId() + "'s cart");
-        return "redirect:home";
+        return "redirect:cart";
     }
 
     @ExceptionHandler(CartException.class)
