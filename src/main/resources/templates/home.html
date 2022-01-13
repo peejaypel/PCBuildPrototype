@@ -12,21 +12,14 @@
             integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
             crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.2/css/swiper.min.css">
-    <link rel="stylesheet" href="slider.css">
+    <link rel="stylesheet" href="/css/slider.css">
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.2/js/swiper.min.js"></script>
 </head>
 <!-- End Header -->
 <body class="bg-primary">
-<nav class="navbar sticky-top bg-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">PCBuildPrototype</a>
-        <div class="d-flex">
-            <a class="mx-2 .text-white">About</a>
-            <a href="cart" class="mx-2 .text-white">Cart</a>
-            <a href="login.html" class="mx-2 .text-white">Logout</a>
-        </div>
-    </div>
-</nav>
+
+<!--Navbar-->
+<div th:replace="fragments/navbars.html :: homeNavbar"></div>
 
 <!--Main-->
 <div class="container-fluid">
