@@ -41,10 +41,9 @@
                     <td th:text="${item.price}">${item.price}</td>
                     <td th:text="${item.quantity}">${item.quantity}</td>
                     <td>
-                        <form action="removeToCart" method="post">
-                            <input type="hidden" name="userId" th:value="${user.userId}"/>
-                            <input type="hidden" name="userAction" th:value="cancel"/>
+                        <form action="cart" method="post">
                             <input type="hidden" name="itemId" th:value="${item.itemId}"/>
+                            <input type="hidden" name="userAction" th:value="cancel"/>
                             <input class="btn" type="submit" value="Cancel"/>
                         </form>
                     </td>
