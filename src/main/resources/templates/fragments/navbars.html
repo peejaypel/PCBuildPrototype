@@ -1,7 +1,10 @@
 <div th:fragment="homeNavbar">
-    <nav class="navbar sticky-top bg-dark">
+    <nav class="navbar sticky-top navbar-main">
         <div class="container-fluid">
-            <a class="navbar-brand" href="home">PCBuildPrototype</a>
+            <div class="flex-grow-0">
+                <img class="navbar-logo" src="icon_pcbuildprototype.svg"/>
+                <a class="navbar-brand" href="home">PCBuildPrototype</a>
+            </div>
             <div class="d-flex">
                 <a class="mx-2 .text-white" href="about">About</a>
                 <a class="mx-2 .text-white" href="cart">Cart</a>
@@ -9,7 +12,7 @@
             </div>
         </div>
     </nav>
-    <nav class="navbar sticky-top bg-secondary">
+    <nav class="navbar sticky-top navbar-sub">
         <div class="container-fluid">
             <div class="d-flex">
                 <a class="mx-2 text-white" href="home">Home</a>

@@ -1,0 +1,60 @@
+.navbar-main {
+    background-color: #100928;
+}
+
+.navbar-sub {
+    background-color: #141414;
+}
+
+.navbar-brand {
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    color: white;
+}
+
+.navbar-main a {
+    color: white;
+}
+
+.navbar-sub a {
+    color: green;
+}
+
+.navbar-sub a:hover {
+    background-color: green;
+}
+
+.navbar-logo {
+    height: auto;
+    max-height: 75px;
+}
+
+a {
+    text-decoration-line: none;
+}
+
+h1 {
+    color: white;
+    font-weight: bolder;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+table tr:nth-child(even) {
+    background-color: #75578B;
+}
+
+table tr:nth-child(odd){
+    background-color: #8D76A2;
+}
+
+table td {
+    color: white;
+}
+
+table th {
+    background-color: #502A6C;
+    font-weight: bolder;
+}
+
+
+
