@@ -34,7 +34,7 @@ public class UserController {
         var shop = computerComponentRepo.findAll();
         model.addAttribute("shop", shop);
 
-        var categories = new HashSet<>();
+        HashSet<String> categories = new HashSet<String>();
         for (ComputerComponent component :shop) {
             if (!categories.contains(component.getComponent())) categories.add(component.getComponent());
         }
