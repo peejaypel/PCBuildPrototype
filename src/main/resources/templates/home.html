@@ -13,134 +13,125 @@
             crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.2/css/swiper.min.css">
     <link rel="stylesheet" href="/css/slider.css">
+    <link rel="stylesheet" href="/css/style.css">
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.2/js/swiper.min.js"></script>
 </head>
 <!-- End Header -->
-<body class="bg-primary">
+<body class="">
 
 <!--Navbar-->
 <div th:replace="fragments/navbars.html :: homeNavbar"></div>
 
 <!--Main-->
-<div class="container-fluid">
+<div class="main container-fluid">
 
-    <h1>Top Sellers</h1>
-
-    <div class="row">
-        <div class="swiper-container">
-            <!-- Additional required wrapper -->
-            <div class="swiper-wrapper">
-                <!-- Slides -->
-                <div class="swiper-slide">
-                    <div class="picture">
-                        <img src="gtx1050.png" alt="gtx 1050">
-                    </div>
-                    <div class="detail">
-                        <h3>Image Gallery</h3>
-                        <span>Pinterest Style</span>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="picture">
-                        <img src="gtx1050.png" alt="gtx 1050">
-                    </div>
-                    <div class="detail">
-                        <h3>Image Gallery</h3>
-                        <span>Pinterest Style</span>
-                    </div>
-                </div>
-
-                <div class="swiper-slide">
-                    <div class="picture">
-                        <img src="gtx1050.png" alt="gtx 1050">
-                    </div>
-                    <div class="detail">
-                        <h3>Image Gallery</h3>
-                        <span>Pinterest Style</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-<!--        <div id="carouselControls" class="carousel slide" data-ride="carousel">-->
-<!--            <div class="carousel-inner">-->
-<!--                &lt;!&ndash;                ${item.index}== 0  ? 'carousel-item active':'carousel-item'     &ndash;&gt;-->
-<!--                &lt;!&ndash;                <div class="carousel-item active">&ndash;&gt;-->
-<!--                &lt;!&ndash;                    <div class="col-sm-2 card">&ndash;&gt;-->
-<!--                &lt;!&ndash;                        <img class="card-img-top" src="gtx1050.png" alt="item label"/>&ndash;&gt;-->
-<!--                &lt;!&ndash;                    </div>&ndash;&gt;-->
-<!--                &lt;!&ndash;                </div>&ndash;&gt;-->
-<!--                &lt;!&ndash;                <div class="item">&ndash;&gt;-->
-<!--                &lt;!&ndash;                    <div class="col-sm-2 card">&ndash;&gt;-->
-<!--                &lt;!&ndash;                        <img class="card-img-top" src="gtx1050.png" alt="item label"/>&ndash;&gt;-->
-<!--                &lt;!&ndash;                    </div>&ndash;&gt;-->
-<!--                &lt;!&ndash;                </div>&ndash;&gt;-->
-<!--                &lt;!&ndash;                th:each="item:${shop}"   &ndash;&gt;-->
-<!--                <div th:each="item, itemStat:${shop}"-->
-<!--                     class="${itemStat.index}== 0  ? 'carousel-item active':'carousel-item'">-->
-<!--                    &lt;!&ndash;                    <div class="col-sm-2">&ndash;&gt;-->
-<!--                    <div class="d-block w-100 card">-->
-<!--                        <img class="card-img-top" src="gtx1050.png" alt="item label"/>-->
-<!--                        <div class="card-body">-->
-<!--                            <h5 class="card-title" th:text="${item.component}">${item.name}</h5>-->
-<!--                            <p class="card-text" th:text="${item.price}">${item.price}</p>-->
-<!--                            <p class="card-text" th:text="${item.shop}">${item.shop}</p>-->
-<!--                            <a href="#" class="btn btn-primary">View more</a>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    &lt;!&ndash;                    </div>&ndash;&gt;-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <a class="carousel-control-prev" href="#carouselControls" role="button" data-slide="prev">-->
-<!--                <span class="carousel-control-prev-icon" aria-hidden="true"></span>-->
-<!--                <span class="sr-only">Previous</span>-->
-<!--            </a>-->
-<!--            <a class="carousel-control-next" href="#carouselControls" role="button" data-slide="next">-->
-<!--                <span class="carousel-control-next-icon" aria-hidden="true"></span>-->
-<!--                <span class="sr-only">Next</span>-->
-<!--            </a>-->
-<!--        </div>-->
-    </div>
-
-<!--Categories-->
-    <div class="my-4 mx-3">
-        <h1>Categories</h1>
+    <div class="bgpattern-polka">
+        <h1 class="text-center">Top-sellers</h1>
         <div class="row">
-            <div class="col-sm-2" th:each="item:${shop}">
-                <div class="card">
-                    <img class="card-img-top" src="icon_placeholder.png" alt="item label">
-                    <div class="card-body">
-                        <h5 class="card-title" th:text="${item.component}">${item.name}</h5>
-                        <p class="card-text"  th:text="${item.price}">${item.price}</p>
-                        <p class="card-text" th:text="${item.shop}">${item.shop}</p>
-                        <a href="#" class="btn btn-primary">View more</a>
+            <div class="swiper-container">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    <div class="swiper-slide" th:each="item:${shop}">
+                        <div class="picture">
+                            <img src="gtx1050.png" alt="gtx 1050">
+                        </div>
+                        <div class="detail">
+                            <h3 th:text="${item.component}">component_name</h3>
+                            <span th:text="${item.price}">component_price</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        <!--        <div id="carouselControls" class="carousel slide" data-ride="carousel">-->
+        <!--            <div class="carousel-inner">-->
+        <!--                &lt;!&ndash;                ${item.index}== 0  ? 'carousel-item active':'carousel-item'     &ndash;&gt;-->
+        <!--                &lt;!&ndash;                <div class="carousel-item active">&ndash;&gt;-->
+        <!--                &lt;!&ndash;                    <div class="col-sm-2 card">&ndash;&gt;-->
+        <!--                &lt;!&ndash;                        <img class="card-img-top" src="gtx1050.png" alt="item label"/>&ndash;&gt;-->
+        <!--                &lt;!&ndash;                    </div>&ndash;&gt;-->
+        <!--                &lt;!&ndash;                </div>&ndash;&gt;-->
+        <!--                &lt;!&ndash;                <div class="item">&ndash;&gt;-->
+        <!--                &lt;!&ndash;                    <div class="col-sm-2 card">&ndash;&gt;-->
+        <!--                &lt;!&ndash;                        <img class="card-img-top" src="gtx1050.png" alt="item label"/>&ndash;&gt;-->
+        <!--                &lt;!&ndash;                    </div>&ndash;&gt;-->
+        <!--                &lt;!&ndash;                </div>&ndash;&gt;-->
+        <!--                &lt;!&ndash;                th:each="item:${shop}"   &ndash;&gt;-->
+        <!--                <div th:each="item, itemStat:${shop}"-->
+        <!--                     class="${itemStat.index}== 0  ? 'carousel-item active':'carousel-item'">-->
+        <!--                    &lt;!&ndash;                    <div class="col-sm-2">&ndash;&gt;-->
+        <!--                    <div class="d-block w-100 card">-->
+        <!--                        <img class="card-img-top" src="gtx1050.png" alt="item label"/>-->
+        <!--                        <div class="card-body">-->
+        <!--                            <h5 class="card-title" th:text="${item.component}">${item.name}</h5>-->
+        <!--                            <p class="card-text" th:text="${item.price}">${item.price}</p>-->
+        <!--                            <p class="card-text" th:text="${item.shop}">${item.shop}</p>-->
+        <!--                            <a href="#" class="btn btn-primary">View more</a>-->
+        <!--                        </div>-->
+        <!--                    </div>-->
+        <!--                    &lt;!&ndash;                    </div>&ndash;&gt;-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--            <a class="carousel-control-prev" href="#carouselControls" role="button" data-slide="prev">-->
+        <!--                <span class="carousel-control-prev-icon" aria-hidden="true"></span>-->
+        <!--                <span class="sr-only">Previous</span>-->
+        <!--            </a>-->
+        <!--            <a class="carousel-control-next" href="#carouselControls" role="button" data-slide="next">-->
+        <!--                <span class="carousel-control-next-icon" aria-hidden="true"></span>-->
+        <!--                <span class="sr-only">Next</span>-->
+        <!--            </a>-->
+        <!--        </div>-->
     </div>
 
-<!--Shops-->
-    <div class="my-4 mx-3">
-        <h1>Shops</h1>
+    <!--Categories-->
+    <div>
+        <h1 class="text-center">Categories</h1>
         <div class="row">
-            <div class="col-sm-2" th:each="item:${shop}">
-                <div class="card">
-                    <img class="card-img-top" src="icon_shop.png" alt="item label">
-                    <div class="card-body">
-                        <h5 class="card-title" th:text="${item.component}">${item.name}</h5>
-                        <p class="card-text"  th:text="${item.price}">${item.price}</p>
-                        <p class="card-text" th:text="${item.shop}">${item.shop}</p>
-                        <a href="#" class="btn btn-primary">View more</a>
+            <div class="swiper-container">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    <div class="swiper-slide" th:each="item:${shop}">
+                        <div class="picture">
+                            <img src="icon_placeholder.png" alt="gtx 1050">
+                        </div>
+                        <div class="detail">
+                            <h3 th:text="${item.component}">component_name</h3>
+                            <span th:text="${item.price}">component_price</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-<!--Components-->
-    <div class="my-4 mx-3">
+    <!--Shops-->
+    <div>
+        <h1 class="text-center">Shops</h1>
+        <div class="row">
+            <div class="swiper-container">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    <div class="swiper-slide" th:each="item:${shop}">
+                        <div class="picture">
+                            <img src="icon_shop.png" alt="gtx 1050">
+                        </div>
+                        <div class="detail">
+                            <h3 th:text="${item.component}">component_name</h3>
+                            <span th:text="${item.price}">component_price</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Components-->
+    <div>
         <div class="col-md">
-            <h2>Components List</h2>
+            <h1 class="text-center">Components List</h1>
 
             <table class="table table-bordered" id="available_table">
                 <tr>
@@ -150,6 +141,7 @@
                     <th>Shop</th>
                     <th>Price</th>
                     <th>Quantity</th>
+                    <th></th>
                 </tr>
                 <tr th:id="${item.itemId}" th:each="item : ${shop}">
                     <td th:text="${item.component}">${item.component}</td>
@@ -158,12 +150,12 @@
                     <td th:text="${item.shop}">${item.shop}</td>
                     <td th:text="${item.price}">${item.price}</td>
                     <td th:text="${item.quantity}">${item.quantity}</td>
-                    <td>
+                    <td class="d-flex justify-content-center">
                         <form action="addToCart" method="post">
                             <input type="hidden" name="userId" th:value="${user.userId}"/>
                             <input type="hidden" name="userAction" th:value="addToCart"/>
                             <input type="hidden" name="itemId" th:value="${item.itemId}"/>
-                            <input class="btn" type="submit" value="Add To Cart"/>
+                            <input class="btn-primary" type="submit" value="Add To Cart"/>
                         </form>
                     </td>
                 </tr>
