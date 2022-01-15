@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 public class PCBuildPrototypeApplication {
 
     @RequestMapping("/")
+    @GetMapping
     String showItem(HttpServletRequest request, HttpServletResponse response) {
         return "login";
     }
