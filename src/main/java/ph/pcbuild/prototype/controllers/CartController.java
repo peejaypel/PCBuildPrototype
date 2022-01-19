@@ -31,7 +31,7 @@ public class CartController {
 
     @PostMapping
     String addRemoveCart(@ModelAttribute User user,@RequestParam Integer itemId, @RequestParam String userAction, RedirectAttributes redirectAttrs) {
-        ComputerComponent component = computerComponentRepo.findBy(itemId).get();
+        ComputerComponent component = computerComponentRepo.findBy(itemId);
 
         switch (userAction) {
             case "addToCart":
@@ -50,7 +50,7 @@ public class CartController {
 
     @ExceptionHandler(CartException.class)
     String handleException(RedirectAttributes redirectAttrs, CartException e) {
-        redirectAttrs.addFlashAttribute("cartException", e.getMessage());
+        redirectAttrs.addFlashAttribute("cartExceptionMessage", e.getMessage());
         return "redirect:cart";
     }
 }
