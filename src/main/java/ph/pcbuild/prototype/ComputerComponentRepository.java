@@ -1,13 +1,12 @@
 package ph.pcbuild.prototype;
 
 import java.util.Collection;
-import java.util.Optional;
 
 import static ph.pcbuild.prototype.DATA.*;
 
 public class ComputerComponentRepository {
-    public Optional<ComputerComponent> findBy(int itemId) {
-        return findAll().stream().filter(component -> component.getItemId() == itemId).findFirst();
+    public ComputerComponent findBy(int itemId) {
+        return findAll().stream().filter(component -> component.getItemId() == itemId).findFirst().orElse(C1);
     }
 
     public void addToShop(ComputerComponent component){
