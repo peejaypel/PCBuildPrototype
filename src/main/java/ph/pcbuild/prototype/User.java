@@ -48,10 +48,13 @@ public class User {
         notNull(component);
         component.lock();
         try{
-            while(cart.remove(component)!= null){
+            int quantity = cart.get(component);
+            for(int i = 0; i < quantity; i++){
                 component.incrementQuantity();
-                //might need to replace component in ArrayList Repo
+                //return all product to shop
             }
+            //then remove from cart
+            cart.remove(component);
         } finally {
             component.unlock();
         }
