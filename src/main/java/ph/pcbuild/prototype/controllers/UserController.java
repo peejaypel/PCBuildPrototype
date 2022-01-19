@@ -36,7 +36,7 @@ public class UserController {
 
         HashSet<String> categories = new HashSet<String>();
         for (ComputerComponent component :shop) {
-            if (!categories.contains(component.getComponent())) categories.add(component.getComponent());
+            categories.add(component.getComponent());
         }
         model.addAttribute("categories", categories);
 
