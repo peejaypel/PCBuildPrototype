@@ -1,11 +1,6 @@
 package ph.pcbuild.prototype;
 
-import org.junit.Test;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 import static org.apache.commons.lang3.Validate.*;
 
@@ -13,7 +8,7 @@ public class User {
     private final int userId;
     private final String firstName;
     private final String lastName;
-    private List<ComputerComponent> cart = new ArrayList<>();
+    private HashMap<ComputerComponent, Integer> cart = new HashMap<>();
 
     User(int userId, String firstName, String lastName){
         isTrue(userId >= 0, "userId should be non-negative, was: " + userId);
@@ -41,7 +36,9 @@ public class User {
         // make sure only one thread at a time
         try{
             component.decrementQuantity();
-            cart.add(component);
+            Integer quantity =
+                    cart.get(component) == null? 1 : cart.get(component) + 1;
+            cart.put(component, quantity);
         } finally {
             component.unlock();
         }
@@ -51,7 +48,7 @@ public class User {
         notNull(component);
         component.lock();
         try{
-            if(cart.remove(component)){
+            while(cart.remove(component)!= null){
                 component.incrementQuantity();
                 //might need to replace component in ArrayList Repo
             }
@@ -60,8 +57,8 @@ public class User {
         }
     }
 
-    public Collection<ComputerComponent> getCart() {
-        return new ArrayList<>(cart);
+    public HashMap<ComputerComponent, Integer> getCart() {
+        return new HashMap<>(cart);
     }
 
     @Override
