@@ -8,7 +8,7 @@ public class User {
     private final int userId;
     private final String firstName;
     private final String lastName;
-    private HashMap cart = new HashMap<ComputerComponent, Integer>();
+    private HashMap<ComputerComponent, Integer> cart = new HashMap<>();
 
     User(int userId, String firstName, String lastName){
         isTrue(userId >= 0, "userId should be non-negative, was: " + userId);
@@ -36,7 +36,8 @@ public class User {
         // make sure only one thread at a time
         try{
             component.decrementQuantity();
-            Integer quantity = (Integer) cart.get(component) + 1;
+            Integer quantity =
+                    cart.get(component) == null? 1 : cart.get(component) + 1;
             cart.put(component, quantity);
         } finally {
             component.unlock();
@@ -47,7 +48,7 @@ public class User {
         notNull(component);
         component.lock();
         try{
-            if(cart.remove(component)!= null){
+            while(cart.remove(component)!= null){
                 component.incrementQuantity();
                 //might need to replace component in ArrayList Repo
             }
@@ -57,7 +58,7 @@ public class User {
     }
 
     public HashMap<ComputerComponent, Integer> getCart() {
-        return new HashMap<ComputerComponent, Integer>(cart);
+        return new HashMap<>(cart);
     }
 
     @Override
