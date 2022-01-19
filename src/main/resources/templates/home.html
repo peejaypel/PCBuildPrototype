@@ -69,8 +69,7 @@
                             <form action="item"method="post">
                                 <input type="hidden" name="itemId" th:value="${item.itemId}"/>
                                 <!--                            <input type="hidden" name="userAction" th:value="addToCart"/>-->
-                                <input class="btn-primary d-block mx-auto" type="submit" value="View more"/>
-                                <a th:attr="href=${'item?id=' + item.itemId}" class="stretched-link">View more</a>
+                                <a th:attr="href=${'item?id=' + item.itemId}" class="stretched-link"></a>
                             </form>
                         </div>
                     </div>

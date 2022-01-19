@@ -30,7 +30,11 @@
             <div th:text="${componentQuantity}">Stocks Available:</div>
             <div>Description</div>
             <div th:text="${componentShop}">Shop</div>
-            <button class="btn-primary my-3">Add to cart</button>
+            <form action="cart" method="post">
+                <input type="hidden" name="itemId" th:value="${component.getItemId()}"/>
+                <input type="hidden" name="userAction" th:value="addToCart"/>
+                <input class="btn-primary" type="submit" value="AddToCart"/>
+            </form>
         </div>
     </div>
 
