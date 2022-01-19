@@ -23,13 +23,13 @@
         </div>
 
         <div class="d-flex flex-column mx-4">
-            <div><p class="itempage-item-componentName">Component Name</p></div>
-            <div>Price</div>
+            <div><p class="itempage-item-componentName" th:text="${componentName}">Component Name</p></div>
+            <div th:text="${componentPrice}">Price</div>
             <div th:height="10px"></div>
-            <div>Component type</div>
-            <div>Stocks Available:</div>
+            <div th:text="${componentBrand}">Component Brand</div>
+            <div th:text="${componentQuantity}">Stocks Available:</div>
             <div>Description</div>
-            <div>Shop</div>
+            <div th:text="${componentShop}">Shop</div>
             <button class="btn-primary my-3">Add to cart</button>
         </div>
     </div>
