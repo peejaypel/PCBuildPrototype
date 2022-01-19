@@ -45,7 +45,7 @@ public class UserController {
 
     @ExceptionHandler(CartException.class)
     String handleException(RedirectAttributes redirectAttrs, CartException e) {
-        redirectAttrs.addFlashAttribute("enlistmentExceptionMessage", e.getMessage());
+        redirectAttrs.addFlashAttribute("cartExceptionMessage", e.getMessage());
         return "redirect:home";
     }
 }

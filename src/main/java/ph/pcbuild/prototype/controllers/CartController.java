@@ -44,13 +44,13 @@ public class CartController {
 
         //Specifically, @GetMapping is a composed annotation that acts as a shortcut for @RequestMapping(method = RequestMethod.GET).
 
-        redirectAttrs.addFlashAttribute("addToCartSuccessMessage", "Successfully added component " + component.getItemId() + " to user " + user.getUserId() + "'s cart");
+        redirectAttrs.addFlashAttribute("cartSuccessMessage", "Successfully added component " + component.getItemId() + " to user " + user.getUserId() + "'s cart");
         return "redirect:cart";
     }
 
     @ExceptionHandler(CartException.class)
     String handleException(RedirectAttributes redirectAttrs, CartException e) {
-        redirectAttrs.addFlashAttribute("addToCartException", e.getMessage());
+        redirectAttrs.addFlashAttribute("cartException", e.getMessage());
         return "redirect:cart";
     }
 }
