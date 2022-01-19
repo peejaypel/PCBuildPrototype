@@ -21,15 +21,16 @@
                 <!-- Additional required wrapper -->
                 <div class="swiper-wrapper">
                     <!-- Slides -->
-                    <div class="swiper-slide" th:each="item:${shop}">
-                        <div class="picture">
-                            <img src="gtx1050.png" alt="gtx 1050">
+                        <div class="swiper-slide" th:each="item:${shop}">
+                            <div class="picture">
+                                <img src="gtx1050.png" alt="gtx 1050">
+                            </div>
+                            <div class="detail">
+                                <h3 th:text="${item.component}">component_name</h3>
+                                <span th:text="${item.price}">component_price</span>
+                            </div>
+                            <a th:attr="href=${'item?id=' + item.getItemId()}" class="btn-primary stretched-link"></a>
                         </div>
-                        <div class="detail">
-                            <h3 th:text="${item.component}">component_name</h3>
-                            <span th:text="${item.price}">component_price</span>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -57,21 +58,22 @@
         <h1 class="text-center">Components</h1>
         <div class="row">
             <div class="d-flex flex-wrap justify-content-center">
-                <div class="card-component m-2 p-2 align-content-center" th:each="item:${shop}">
-                    <img class="rounded d-block mx-auto" src="gtx1050.png">
-                    <div class="card-component-info">
-                        <p class="text-center card-component-name" th:text="${item.component}"></p>
-                        <p class="text-center" th:text="${item.price}"></p>
-                        <p class="text-center" th:text="${item.shop}"></p>
+                    <div class="card-component card m-2 p-2 align-content-center" th:each="item:${shop}">
+                        <img class="rounded d-block mx-auto" src="gtx1050.png">
+                        <div class="card-component-info">
+                            <p class="text-center card-component-name" th:text="${item.component}"></p>
+                            <p class="text-center" th:text="${item.price}"></p>
+                            <p class="text-center" th:text="${item.shop}"></p>
+                        </div>
+                        <div class="d-block mx-auto">
+                            <form action="item"method="post">
+                                <input type="hidden" name="itemId" th:value="${item.itemId}"/>
+                                <!--                            <input type="hidden" name="userAction" th:value="addToCart"/>-->
+                                <input class="btn-primary d-block mx-auto" type="submit" value="View more"/>
+                                <a th:attr="href=${'item?id=' + item.itemId}" class="stretched-link">View more</a>
+                            </form>
+                        </div>
                     </div>
-                    <div class="d-block mx-auto">
-                        <form action="cart"method="post">
-                            <input type="hidden" name="itemId" th:value="${item.itemId}"/>
-                            <input type="hidden" name="userAction" th:value="addToCart"/>
-                            <input class="btn-primary d-block mx-auto" type="submit" value="AddToCart"/>
-                        </form>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
