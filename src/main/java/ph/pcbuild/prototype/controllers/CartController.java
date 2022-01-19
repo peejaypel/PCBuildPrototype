@@ -23,9 +23,7 @@ public class CartController {
 
     @GetMapping
     String showItem(Model model, Integer userId) {
-        User user = userId == null ? (User) model.getAttribute("user")
-                : userRepo.findBy(userId);
-        model.addAttribute("user", user);
+        User user = (User) model.getAttribute("user");
         var cart = user.getCart();
         model.addAttribute("cart", cart);
         return "cart";
