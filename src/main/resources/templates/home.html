@@ -80,38 +80,38 @@
     <div class="my-5"></div>
 
     <!--Components-->
-    <div>
-        <div class="col-md">
-            <h1 class="text-center">Components List</h1>
+<!--    <div>-->
+<!--        <div class="col-md">-->
+<!--            <h1 class="text-center">Components List</h1>-->
 
-            <table class="table table-bordered" id="available_table">
-                <tr>
-                    <th>Component</th>
-                    <th>Brand</th>
-                    <th>Model</th>
-                    <th>Shop</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                    <th></th>
-                </tr>
-                <tr th:id="${item.itemId}" th:each="item : ${shop}">
-                    <td th:text="${item.component}">${item.component}</td>
-                    <td th:text="${item.brand}">${item.brand}</td>
-                    <td th:text="${item.model}">${item.model}</td>
-                    <td th:text="${item.shop}">${item.shop}</td>
-                    <td th:text="${item.price}">${item.price}</td>
-                    <td th:text="${item.quantity}">${item.quantity}</td>
-                    <td class="d-flex justify-content-center">
-                        <form action="cart" method="post">
-                            <input type="hidden" name="itemId" th:value="${item.itemId}"/>
-                            <input type="hidden" name="userAction" th:value="addToCart"/>
-                            <input class="btn-primary" type="submit" value="AddToCart"/>
-                        </form>
-                    </td>
-                </tr>
-            </table>
-        </div>
-    </div>
+<!--            <table class="table table-bordered" id="available_table">-->
+<!--                <tr>-->
+<!--                    <th>Component</th>-->
+<!--                    <th>Brand</th>-->
+<!--                    <th>Model</th>-->
+<!--                    <th>Shop</th>-->
+<!--                    <th>Price</th>-->
+<!--                    <th>Quantity</th>-->
+<!--                    <th></th>-->
+<!--                </tr>-->
+<!--                <tr th:id="${item.itemId}" th:each="item : ${shop}">-->
+<!--                    <td th:text="${item.component}">${item.component}</td>-->
+<!--                    <td th:text="${item.brand}">${item.brand}</td>-->
+<!--                    <td th:text="${item.model}">${item.model}</td>-->
+<!--                    <td th:text="${item.shop}">${item.shop}</td>-->
+<!--                    <td th:text="${item.price}">${item.price}</td>-->
+<!--                    <td th:text="${item.quantity}">${item.quantity}</td>-->
+<!--                    <td class="d-flex justify-content-center">-->
+<!--                        <form action="cart" method="post">-->
+<!--                            <input type="hidden" name="itemId" th:value="${item.itemId}"/>-->
+<!--                            <input type="hidden" name="userAction" th:value="addToCart"/>-->
+<!--                            <input class="btn-primary" type="submit" value="AddToCart"/>-->
+<!--                        </form>-->
+<!--                    </td>-->
+<!--                </tr>-->
+<!--            </table>-->
+<!--        </div>-->
+<!--    </div>-->
 </div>
 <!-- Start Footer -->
 <div th:replace="fragments/footer.html :: footer"></div>
