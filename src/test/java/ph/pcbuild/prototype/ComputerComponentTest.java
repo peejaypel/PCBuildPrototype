@@ -16,6 +16,15 @@ public class ComputerComponentTest {
         U2.addToCart(C1);
         assertThrows(OutOfStockException.class, () -> U3.addToCart(C1));
 
-        assertEquals(0,C1.getQuantity());
+
+    }
+    @Test
+    void add_to_cart_successful(){
+        ComputerComponent C1 = new ComputerComponent (1, "SET", "ASUS", "ROG STRIX Full Build", "Shopee", 52500, 2);
+
+        User U1 = new User(1,"Near", "Far");
+        U1.addToCart(C1);
+        assertEquals(1,C1.getQuantity());
+
     }
 }
