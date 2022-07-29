@@ -21,16 +21,16 @@
                 <!-- Additional required wrapper -->
                 <div class="swiper-wrapper">
                     <!-- Slides -->
-                        <div class="swiper-slide" th:each="item:${shop}">
-                            <div class="picture">
-                                <img src="gtx1050.png" alt="gtx 1050">
-                            </div>
-                            <div class="detail">
-                                <h3 th:text="${item.component}">component_name</h3>
-                                <span th:text="${item.price}">component_price</span>
-                            </div>
-                            <a th:attr="href=${'item?id=' + item.getItemId()}" class="btn-primary stretched-link"></a>
+                    <div class="swiper-slide" th:each="item:${shop}">
+                        <div class="picture">
+                            <img src="gtx1050.png" alt="gtx 1050">
                         </div>
+                        <div class="detail">
+                            <h3 th:text="${item.component}">component_name</h3>
+                            <span th:text="${item.price}">component_price</span>
+                        </div>
+                        <a th:attr="href=${'item?id=' + item.getItemId()}" class="btn-primary stretched-link"></a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -53,26 +53,26 @@
 
     <div class="my-5"></div>
 
-<!-- Components -->
+    <!-- Components -->
     <div class="home-section">
         <h1 class="text-center">Components</h1>
         <div class="row">
             <div class="d-flex flex-wrap justify-content-center">
-                    <div class="card-component card m-2 p-2 align-content-center" th:each="item:${shop}">
-                        <img class="rounded d-block mx-auto" src="gtx1050.png">
-                        <div class="card-component-info">
-                            <p class="text-center card-component-name" th:text="${item.component}"></p>
-                            <p class="text-center" th:text="${item.price}"></p>
-                            <p class="text-center" th:text="${item.shop}"></p>
-                        </div>
-                        <div class="d-block mx-auto">
-                            <form action="item"method="post">
-                                <input type="hidden" name="itemId" th:value="${item.itemId}"/>
-                                <!--                            <input type="hidden" name="userAction" th:value="addToCart"/>-->
-                                <a th:attr="href=${'item?id=' + item.itemId}" class="stretched-link"></a>
-                            </form>
-                        </div>
+                <div class="card-component card m-2 p-2 align-content-center" th:each="item:${shop}">
+                    <img class="rounded d-block mx-auto" src="gtx1050.png">
+                    <div class="card-component-info">
+                        <p class="text-center card-component-name" th:text="${item.component}"></p>
+                        <p class="text-center" th:text="${item.price}"></p>
+                        <p class="text-center" th:text="${item.shop}"></p>
                     </div>
+                    <div class="d-block mx-auto">
+                        <form action="item" method="post">
+                            <input type="hidden" name="itemId" th:value="${item.itemId}"/>
+                            <!--                            <input type="hidden" name="userAction" th:value="addToCart"/>-->
+                            <a th:attr="href=${'item?id=' + item.itemId}" class="stretched-link"></a>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -80,38 +80,38 @@
     <div class="my-5"></div>
 
     <!--Components-->
-<!--    <div>-->
-<!--        <div class="col-md">-->
-<!--            <h1 class="text-center">Components List</h1>-->
+    <!--    <div>-->
+    <!--        <div class="col-md">-->
+    <!--            <h1 class="text-center">Components List</h1>-->
 
-<!--            <table class="table table-bordered" id="available_table">-->
-<!--                <tr>-->
-<!--                    <th>Component</th>-->
-<!--                    <th>Brand</th>-->
-<!--                    <th>Model</th>-->
-<!--                    <th>Shop</th>-->
-<!--                    <th>Price</th>-->
-<!--                    <th>Quantity</th>-->
-<!--                    <th></th>-->
-<!--                </tr>-->
-<!--                <tr th:id="${item.itemId}" th:each="item : ${shop}">-->
-<!--                    <td th:text="${item.component}">${item.component}</td>-->
-<!--                    <td th:text="${item.brand}">${item.brand}</td>-->
-<!--                    <td th:text="${item.model}">${item.model}</td>-->
-<!--                    <td th:text="${item.shop}">${item.shop}</td>-->
-<!--                    <td th:text="${item.price}">${item.price}</td>-->
-<!--                    <td th:text="${item.quantity}">${item.quantity}</td>-->
-<!--                    <td class="d-flex justify-content-center">-->
-<!--                        <form action="cart" method="post">-->
-<!--                            <input type="hidden" name="itemId" th:value="${item.itemId}"/>-->
-<!--                            <input type="hidden" name="userAction" th:value="addToCart"/>-->
-<!--                            <input class="btn-primary" type="submit" value="AddToCart"/>-->
-<!--                        </form>-->
-<!--                    </td>-->
-<!--                </tr>-->
-<!--            </table>-->
-<!--        </div>-->
-<!--    </div>-->
+    <!--            <table class="table table-bordered" id="available_table">-->
+    <!--                <tr>-->
+    <!--                    <th>Component</th>-->
+    <!--                    <th>Brand</th>-->
+    <!--                    <th>Model</th>-->
+    <!--                    <th>Shop</th>-->
+    <!--                    <th>Price</th>-->
+    <!--                    <th>Quantity</th>-->
+    <!--                    <th></th>-->
+    <!--                </tr>-->
+    <!--                <tr th:id="${item.itemId}" th:each="item : ${shop}">-->
+    <!--                    <td th:text="${item.component}">${item.component}</td>-->
+    <!--                    <td th:text="${item.brand}">${item.brand}</td>-->
+    <!--                    <td th:text="${item.model}">${item.model}</td>-->
+    <!--                    <td th:text="${item.shop}">${item.shop}</td>-->
+    <!--                    <td th:text="${item.price}">${item.price}</td>-->
+    <!--                    <td th:text="${item.quantity}">${item.quantity}</td>-->
+    <!--                    <td class="d-flex justify-content-center">-->
+    <!--                        <form action="cart" method="post">-->
+    <!--                            <input type="hidden" name="itemId" th:value="${item.itemId}"/>-->
+    <!--                            <input type="hidden" name="userAction" th:value="addToCart"/>-->
+    <!--                            <input class="btn-primary" type="submit" value="AddToCart"/>-->
+    <!--                        </form>-->
+    <!--                    </td>-->
+    <!--                </tr>-->
+    <!--            </table>-->
+    <!--        </div>-->
+    <!--    </div>-->
 </div>
 <!-- Start Footer -->
 <div th:replace="fragments/footer.html :: footer"></div>
