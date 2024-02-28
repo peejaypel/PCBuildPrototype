@@ -23,9 +23,7 @@ public class CartController {
 
     @GetMapping
     String showItem(Model model, Integer userId) {
-        User user = userId == null ? (User) model.getAttribute("user")
-                : userRepo.findBy(userId);
-        model.addAttribute("user", user);
+        User user = (User) model.getAttribute("user");
         var cart = user.getCart();
         model.addAttribute("cart", cart);
         return "cart";
@@ -33,7 +31,7 @@ public class CartController {
 
     @PostMapping
     String addRemoveCart(@ModelAttribute User user,@RequestParam Integer itemId, @RequestParam String userAction, RedirectAttributes redirectAttrs) {
-        ComputerComponent component = computerComponentRepo.findBy(itemId).get();
+        ComputerComponent component = computerComponentRepo.findBy(itemId);
 
         switch (userAction) {
             case "addToCart":
@@ -46,13 +44,13 @@ public class CartController {
 
         //Specifically, @GetMapping is a composed annotation that acts as a shortcut for @RequestMapping(method = RequestMethod.GET).
 
-        redirectAttrs.addFlashAttribute("addToCartSuccessMessage", "Successfully added component " + component.getItemId() + " to user " + user.getUserId() + "'s cart");
+        redirectAttrs.addFlashAttribute("cartSuccessMessage", "Successfully added component " + component.getItemId() + " to user " + user.getUserId() + "'s cart");
         return "redirect:cart";
     }
 
     @ExceptionHandler(CartException.class)
     String handleException(RedirectAttributes redirectAttrs, CartException e) {
-        redirectAttrs.addFlashAttribute("addToCartException", e.getMessage());
+        redirectAttrs.addFlashAttribute("cartExceptionMessage", e.getMessage());
         return "redirect:cart";
     }
 }

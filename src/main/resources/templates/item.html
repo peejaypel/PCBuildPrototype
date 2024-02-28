@@ -1,0 +1,51 @@
+<!-- Start Header -->
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<!--Begin Header-->
+<div th:replace="fragments/header.html :: header"></div>
+
+<header><link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+        crossorigin="anonymous"></header>
+
+<body>
+<title>Categories</title>
+
+<div th:replace="fragments/navbars.html :: homeNavbar"></div>
+
+<div class="container-fluid">
+    <div class="d-flex flex-row mx-5 my-5 justify-content-center">
+        <div>
+            <img src="gtx1050.png">
+        </div>
+
+        <div class="d-flex flex-column mx-4">
+            <div><p class="itempage-item-componentName" th:text="${componentName}">Component Name</p></div>
+            <div th:text="${componentPrice}">Price</div>
+            <div th:height="10px"></div>
+            <div th:text="${componentBrand}">Component Brand</div>
+            <div th:text="${componentQuantity}">Stocks Available:</div>
+            <div>Description</div>
+            <div th:text="${componentShop}">Shop</div>
+            <form action="cart" method="post">
+                <input type="hidden" name="itemId" th:value="${component.getItemId()}"/>
+                <input type="hidden" name="userAction" th:value="addToCart"/>
+                <input class="btn-primary" type="submit" value="AddToCart"/>
+            </form>
+        </div>
+    </div>
+
+
+</div>
+<!-- Start Footer -->
+<div th:replace="fragments/footer.html :: footer"></div>
+<script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+</body>
+</html>
+<!-- End Footer -->

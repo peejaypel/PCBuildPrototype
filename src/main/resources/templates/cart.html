@@ -17,8 +17,8 @@
         <span th:text="${user.lastName}">Doe</span>,
         UID#<span th:text="${user.userId}">69420</span>
     </h1>
-    <div th:if="${addToCartExceptionMessage}" class="alert alert-danger">
-        <h2 th:text="${addToCartExceptionMessage}">Error message goes here.</h2>
+    <div th:if="${cartExceptionMessage}" class="alert alert-danger">
+        <h2 th:text="${cartExceptionMessage}">Error message goes here.</h2>
     </div>
     <div class="row">
         <div class="col-md">
@@ -33,16 +33,16 @@
                     <th>Quantity</th>
                 </tr>
 
-                <tr th:id="${item.itemId}" th:each="item : ${cart}">
-                    <td th:text="${item.component}">${item.component}</td>
-                    <td th:text="${item.brand}">${item.brand}</td>
-                    <td th:text="${item.model}">${item.model}</td>
-                    <td th:text="${item.shop}">${item.shop}</td>
-                    <td th:text="${item.price}">${item.price}</td>
-                    <td th:text="${item.quantity}">${item.quantity}</td>
+                <tr th:id="${entry.key.itemId}" th:each="entry : ${cart}">
+                    <td th:text="${entry.key.component}">${item.component}</td>
+                    <td th:text="${entry.key.brand}">${item.brand}</td>
+                    <td th:text="${entry.key.model}">${item.model}</td>
+                    <td th:text="${entry.key.shop}">${item.shop}</td>
+                    <td th:text="${entry.key.price}">${item.price}</td>
+                    <td th:text="${entry.value}">${item.quantity}</td>
                     <td>
                         <form action="cart" method="post">
-                            <input type="hidden" name="itemId" th:value="${item.itemId}"/>
+                            <input type="hidden" name="itemId" th:value="${entry.key.itemId}"/>
                             <input type="hidden" name="userAction" th:value="cancel"/>
                             <input class="btn" type="submit" value="Cancel"/>
                         </form>
